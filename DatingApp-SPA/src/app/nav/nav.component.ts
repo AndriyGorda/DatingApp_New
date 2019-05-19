@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-nav',
@@ -18,8 +17,9 @@ export class NavComponent implements OnInit {
   login() {
     this.authService.login(this.model).subscribe(next => {
       console.log('logged in successfully');
-    },
-    error => { console.log('failed to login'); } );
+    }, error => {
+      console.log(error);
+    });
   }
 
   loggedIn() {
